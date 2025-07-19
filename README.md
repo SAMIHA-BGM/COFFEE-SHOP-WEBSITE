@@ -1,5 +1,5 @@
 # COFFEE-SHOP-WEBSITE
-Sarone - Rain, Ritual & Roasts in Code
+Sarone - Rain, Ritual & Roasts in Code.
 A soft, introspective café website design - think rainy windows and warm mugs - created with HTML, CSS, and just a bit of JavaScript whimsy.
 
 #FEATURES:
