@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Sarone Café</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto+Slab&family=Merriweather&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #1e1c1a;
+      color: #e2dbc5;
+      font-family: 'Merriweather', serif;
+    }
+
+    header {
+      background-color: #151311;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #e2dbc5;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #e2dbc5;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #d4b483;
+    }
+
+    .hero-contact {
+      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') no-repeat center center/cover;
+      padding: 6rem 2rem;
+      text-align: center;
+      color: #e2dbc5;
+      background-blend-mode: multiply;
+      background-color: rgba(30, 28, 26, 0.85);
+    }
+
+    .hero-contact h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-contact p {
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+
+    .contact-container {
+      max-width: 900px;
+      margin: 4rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 0 2rem;
+    }
+
+    .contact-info {
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .contact-form {
+      background-color: #2a2724;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(212, 180, 131, 0.1);
+    }
+
+    .contact-form h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 1.5rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #3a3531;
+      color: #e2dbc5;
+      font-family: 'Merriweather', serif;
+      resize: none;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #a89f91;
+    }
+
+    button {
+      padding: 0.75rem;
+      border: none;
+      background-color: #d4b483;
+      color: #1e1c1a;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e9cfa4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      background-color: #151311;
+      color: #a89f91;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">☕ Sarone</div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="ourstory.html">Our Story</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-contact">
+    <h1>Get In Touch</h1>
+    <p>Let your thoughts steep, and reach out to us like a well-brewed tale.</p>
+  </section>
+
+  <!-- Contact Details & Form -->
+  <div class="contact-container">
+    <div class="contact-info">
+      <p><strong>Address:</strong> 123 Ink Street, Library Lane, Oldtown</p>
+      <p><strong>Email:</strong> hello@saronecafe.com</p>
+      <p><strong>Phone:</strong> +91 98765 43210</p>
+    </div>
+
+    <div class="contact-form">
+      <h2>Send Us a Message</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message..." required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Sarone Café - Brewed with Books & Brilliance .</p>
+  </footer>
+
+</body>
+</html>

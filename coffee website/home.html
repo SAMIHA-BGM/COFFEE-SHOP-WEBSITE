@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sarone | Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto+Slab&family=Merriweather&display=swap" rel="stylesheet"/>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Merriweather', serif;
+      background-color: #1e1c1a;
+      color: #e2dbc5;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #141210;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #e2dbc5;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links li a {
+      color: #e2dbc5;
+      text-decoration: none;
+      font-family: 'Roboto Slab', serif;
+      font-size: 1rem;
+    }
+
+    .order-btn {
+      background-color: #977647;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      color: #1e1c1a;
+      font-weight: bold;
+    }
+
+    .about {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #e2dbc5;
+    }
+
+    .about p {
+      font-family: 'Merriweather', serif;
+      font-size: 1.2rem;
+      max-width: 800px;
+      color: #c9c1b6;
+    }
+
+    .visit {
+      padding: 5rem 2rem;
+      text-align: center;
+      background-color: #181613;
+    }
+
+    .visit h2 {
+      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 2rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: #292521;
+      border-radius: 12px;
+      width: 300px;
+      padding: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-family: 'Merriweather', serif;
+      font-size: 1rem;
+      color: #d5cbb8;
+    }
+
+    footer {
+      background-color: #141210;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #9c978a;
+    }
+
+    .spacer {
+      height: 80px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- top navbar -->
+  <header>
+    <div class="logo">Sarone</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="story.html">Our story</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="menu.html" class="order-btn">Order</a></li>
+    </ul>
+  </header>
+
+  <div class="spacer"></div>
+
+  <section class="hero home-hero">
+    <div class="hero-text">
+      <h1>Welcome to Sarone</h1>
+      <p>Where coffee meets classic charm and literature lingers in the air.</p>
+      <a href="menu.html" class="btn">Explore Menu</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-box">
+      <h2>About Us</h2>
+      <p>
+        Sarone is not just a café — it’s a retreat for thinkers, writers, and romantic souls.
+        Nestled in the heart of Oldtown, we blend the richness of specialty brews with
+        the soft silence of pages turning. Everything from our interiors to our beverages
+        is crafted to awaken your inner poet.
+      </p>
+    </div>
+  </section>
+  
+
+  <!-- Visit Section -->
+  <section class="visit" id="visit">
+    <h2>Come Experience the Vibe</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://source.unsplash.com/300x200/?cozy-cafe,books" alt="Interior">
+        <h3>Vintage Interiors</h3>
+        <p>Wood, warmth, whispers. A space that invites pause.</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x200/?reading,coffee" alt="Atmosphere">
+        <h3>Quiet Company</h3>
+        <p>Perfect for solo journaling, book clubs, or lost afternoons.</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x200/?coffee-barista" alt="Baristas">
+        <h3>Crafted with Care</h3>
+        <p>Our baristas are part alchemists, part artists.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Sarone Café - Brewed with Books & Brilliance .</p>
+  </footer>
+
+</body>
+</html>

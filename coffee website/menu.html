@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sarone Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    body {
+      background-color: #1e1c1a;
+      font-family: 'Roboto Slab', serif;
+      color: #e2dbc5;
+      margin: 0;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-top: 3rem;
+      color: #e2dbc5;
+    }
+
+    .menu-section {
+      padding: 2rem 1rem;
+    }
+
+    .category-section {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 3rem auto;
+    }
+
+    .category-card {
+      width: 120px;
+      height: 100px;
+      background: linear-gradient(145deg, #50340b, #251d04af);
+      border-radius: 15px;
+      text-align:center;
+      padding: 1rem 0.5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .category-card:hover {
+      transform: scale(1.05);
+    }
+
+    .category-card i {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .item-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .item-card {
+      background-color: #2b2621;
+      border-radius: 12px;
+      width: 180px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .item-card:hover {
+      transform: scale(1.05);
+    }
+
+    .item-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-bottom: 2px solid #c7ab7b;
+    }
+
+    .item-card p {
+      margin: 0.8rem 0;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .item-card button {
+      background-color: #c7ab7b;
+      border: none;
+      padding: 0.5rem 1rem;
+      color: #1e1c1a;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+    }
+
+    #cart-icon {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #c7ab7b;
+        color: #1e1c1a;
+        padding: 0.6rem 1rem;
+        border-radius: 30px;
+        font-weight: bold;
+        z-index: 999;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      }
+  
+      #cart-panel {
+        position: fixed;
+        top: 0;
+        right: -350px;
+        width: 300px;
+        height: 100%;
+        background: #2b2621;
+        box-shadow: -4px 0 8px rgba(0,0,0,0.5);
+        padding: 1rem;
+        z-index: 998;
+        transition: right 0.3s ease;
+        color: #e2dbc5;
+      }
+  
+      #cart-panel.open {
+        right: 0;
+      }
+  
+      #cart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+  
+      #cart-header h3 {
+        margin: 0;
+      }
+  
+      #cart-items {
+        margin-top: 1rem;
+      }
+  
+      #cart-total {
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        border-top: 1px solid #c7ab7b;
+        padding-top: 1rem;
+      }
+  
+      #cart-panel button {
+        background: none;
+        border: none;
+        color: #e2dbc5;
+        font-size: 1.5rem;
+        cursor: pointer;}
+
+    #cart-items button {
+            background: none;
+            border: none;
+            color: #c7ab7b;
+            font-size: 1rem;
+            cursor: pointer;
+          }
+          
+  </style>
+</head>
+<body>
+  
+<!-- Category Cards -->
+<div class="category-section">
+  <div class="category-card" onclick="scrollToSection('hot')">
+    <i></i> Hot
+  </div>
+  <div class="category-card" onclick="scrollToSection('cold')">
+    <i></i> Cold
+  </div>
+  <div class="category-card" onclick="scrollToSection('milkshakes')">
+    <i></i> Milkshakes
+  </div>
+  <div class="category-card" onclick="scrollToSection('croissants')">
+    <i></i> Croissants
+  </div>
+  <div class="category-card" onclick="scrollToSection('pastries')">
+    <i></i> Pastry
+  </div>
+  <div class="category-card" onclick="scrollToSection('specials')">
+    <i></i> Specials
+  </div>
+</div>
+  
+
+<!-- Sections Start -->
+
+<!--hot-->
+<div class="menu-section" id="hot">
+  <h2>Hot</h2>
+  <div class="item-list">
+    <div class="item-card"><img src="static/img/espresso.jpg"><p>Espresso Noir</p><P>₹70</P><button onclick="addToCart('Espresso Noir', 70)">ADD</button></div>
+    <div class="item-card"><img src="static/img/cappuccino.jpg"><p>Classic Cappuccino</p><P>₹110</P><button onclick="addToCart('Classic Cappuccino', 110)">ADD</button></div>
+    <div class="item-card"><img src="static/img/vanilla.jpg"><p>Vanilla Latte</p><P>₹75</P><button onclick="addToCart('Vanilla Latte', 75)">ADD</button></div>
+    <div class="item-card"><img src="static/img/mocha.jpg"><p>Hazelnut Mocha</p><P>₹180</P><button onclick="addToCart('Hazelnut Mocha', 180)">ADD</button></div>
+    <div class="item-card"><img src="static/img/chai.jpg"><p>Chai Masala</p><P>₹40</P><button onclick="addToCart('Chai Masala', 40)">ADD</button></div>
+    <div class="item-card"><img src="static/img/americano.jpg"><p>Americano Roast</p><P>₹50</P><button onclick="addToCart('Americano Roast', 50)">ADD</button></div>
+    <div class="item-card"><img src="static/img/caramel.jpg"><p>Caramel Macchiato</p><P>₹130</P><button onclick="addToCart('Caramel Macchiato', 130)">ADD</button></div>
+    <div class="item-card"><img src="static/img/frenchpress.jpg"><p>French Press</p><P>₹140</P><button onclick="addToCart('French Press', 140)">ADD</button></div>
+    <div class="item-card"><img src="static/img/aulait.jpg"><p>Café au Lait</p><P>₹170</P><button onclick="addToCart('Café au Lait', 170)">ADD</button></div>
+    <div class="item-card"><img src="static/img/cocoa.jpg"><p>Spiced Cocoa</p><P>₹130</P><button onclick="addToCart('Spiced Cocoa', 130)">ADD</button></div>
+  </div>
+</div>
+
+<!--cold-->
+
+<div class="menu-section" id="cold">
+  <h2>Cold Brews</h2>
+  <div class="item-list">
+    <div class="item-card"><img src="static/images/cold1.jpg"><p>Iced Americano</p><p>₹100</p><button onclick="addToCart('Iced Americano', 100)">ADD</button></div>
+    <div class="item-card"><img src="static/images/cold2.jpg"><p>Cold Brew Vanilla</p><p>₹130</p><button onclick="addToCart('Cold Brew Vanilla', 130)">ADD</button></div>
+    <div class="item-card"><img src="static/images/cold3.jpg"><p>Minty Mocha</p><p>₹120</p><button onclick="addToCart('Minty Mocha', 120)">ADD</button></div>
+    <div class="item-card"><img src="static/images/cold4.jpg"><p>Iced Latte</p><p>₹110</p><button onclick="addToCart('Iced Latte', 110)">ADD</button></div>
+    <div class="item-card"><img src="static/images/cold5.jpg"><p>Coffee Lemonade</p><p>₹100</p><button onclick="addToCart('Coffee Lemonade', 100)">ADD</button></div>
+    <div class="item-card"><img src="static/images/cold6.jpg"><p>Almond Cold Coffee</p><p>₹120</p><button onclick="addToCart('Almond Cold Coffee', 120)">ADD</button></div>
+    <div class="item-card"><img src="static/images/cold7.jpg"><p>Rose Iced Brew</p><p>₹140</p><button onclick="addToCart('Rose Iced Brew', 140)">ADD</button></div>
+    <div class="item-card"><img src="static/images/cold8.jpg"><p>Iced Matcha Latte</p><p>₹150</p><button onclick="addToCart('Iced Matcha Latte', 150)">ADD</button></div>
+    <div class="item-card"><img src="static/images/cold9.jpg"><p>Iced Mocha</p><p>₹130</p><button onclick="addToCart('Iced Mocha', 130)">ADD</button></div>
+    <div class="item-card"><img src="static/images/cold10.jpg"><p>Cold Espresso Shot</p><p>₹90</p><button onclick="addToCart('Cold Espresso Shot', 90)">ADD</button></div>
+  </div>
+</div>
+
+<!-- Milkshakes Section -->
+
+<div class="menu-section" id="milkshakes">
+  <h2>Milkshakes</h2>
+  <div class="item-list">
+    <div class="item-card"><img src="static/images/milk1.jpg"><p>Oreo Dream</p><p>₹140</p><button onclick="addToCart('Oreo Dream', 140)">ADD</button></div>
+    <div class="item-card"><img src="static/images/milk2.jpg"><p>Choco Fudge Shake</p><p>₹150</p><button onclick="addToCart('Choco Fudge Shake', 150)">ADD</button></div>
+    <div class="item-card"><img src="static/images/milk3.jpg"><p>Strawberry Bliss</p><p>₹130</p><button onclick="addToCart('Strawberry Bliss', 130)">ADD</button></div>
+    <div class="item-card"><img src="static/images/milk4.jpg"><p>Vanilla Pod</p><p>₹120</p><button onclick="addToCart('Vanilla Pod', 120)">ADD</button></div>
+    <div class="item-card"><img src="static/images/milk5.jpg"><p>Salted Caramel</p><p>₹140</p><button onclick="addToCart('Salted Caramel', 140)">ADD</button></div>
+    <div class="item-card"><img src="static/images/milk6.jpg"><p>Nutella Bomb</p><p>₹160</p><button onclick="addToCart('Nutella Bomb', 160)">ADD</button></div>
+    <div class="item-card"><img src="static/images/milk7.jpg"><p>Pistachio Delight</p><p>₹150</p><button onclick="addToCart('Pistachio Delight', 150)">ADD</button></div>
+    <div class="item-card"><img src="static/images/milk8.jpg"><p>Mango Magic</p><p>₹130</p><button onclick="addToCart('Mango Magic', 130)">ADD</button></div>
+    <div class="item-card"><img src="static/images/milk9.jpg"><p>Peanut Butter Swirl</p><p>₹150</p><button onclick="addToCart('Peanut Butter Swirl', 150)">ADD</button></div>
+    <div class="item-card"><img src="static/images/milk10.jpg"><p>Butterscotch Blend</p><p>₹120</p><button onclick="addToCart('Butterscotch Blend', 120)">ADD</button></div>
+  </div>
+</div>
+  
+  <!-- Croissants Section -->
+
+  <div class="menu-section" id="croissants">
+  <h2>Croissants</h2>
+  <div class="item-list">
+    <div class="item-card"><img src="static/images/croissants/butter.jpg"><p>Classic Butter</p><p>₹85</p><button onclick="addToCart('Classic Butter', 85)">ADD</button></div>
+    <div class="item-card"><img src="static/images/croissants/almond.jpg"><p>Almond Cream</p><p>₹95</p><button onclick="addToCart('Almond Cream', 95)">ADD</button></div>
+    <div class="item-card"><img src="static/images/croissants/choco.jpg"><p>Chocolate Filled</p><p>₹100</p><button onclick="addToCart('Chocolate Filled', 100)">ADD</button></div>
+    <div class="item-card"><img src="static/images/croissants/raspberry.jpg"><p>Raspberry Glaze</p><p>₹90</p><button onclick="addToCart('Raspberry Glaze', 90)">ADD</button></div>
+    <div class="item-card"><img src="static/images/croissants/cheese.jpg"><p>Cheese Stuffed</p><p>₹105</p><button onclick="addToCart('Cheese Stuffed', 105)">ADD</button></div>
+    <div class="item-card"><img src="static/images/croissants/cinnamon.jpg"><p>Honey Cinnamon</p><p>₹90</p><button onclick="addToCart('Honey Cinnamon', 90)">ADD</button></div>
+    <div class="item-card"><img src="static/images/croissants/hazelnut.jpg"><p>Hazelnut Drizzle</p><p>₹100</p><button onclick="addToCart('Hazelnut Drizzle', 100)">ADD</button></div>
+    <div class="item-card"><img src="static/images/croissants/chip.jpg"><p>Choco Chip</p><p>₹95</p><button onclick="addToCart('Choco Chip', 95)">ADD</button></div>
+    <div class="item-card"><img src="static/images/croissants/berry.jpg"><p>Berry Swirl</p><p>₹90</p><button onclick="addToCart('Berry Swirl', 90)">ADD</button></div>
+    <div class="item-card"><img src="static/images/croissants/orange.jpg"><p>Orange Zest</p><p>₹100</p><button onclick="addToCart('Orange Zest', 100)">ADD</button></div>
+  </div>
+</div>
+
+  
+  <!-- Pastries Section -->
+  
+  <div class="menu-section" id="pastries">
+  <h2>Pastries</h2>
+  <div class="item-list">
+    <div class="item-card"><img src="static/images/pastries/redvelvet.jpg"><p>Red Velvet</p><P>₹190</P><button onclick="addToCart('Red Velvet', 190)">ADD</button></div>
+    <div class="item-card"><img src="static/images/pastries/blueberry.jpg"><p>Blueberry Cheesecake</p><P>₹210</P><button onclick="addToCart('Blueberry Cheesecake', 210)">ADD</button></div>
+    <div class="item-card"><img src="static/images/pastries/hazelnut.jpg"><p>Hazelnut Fudge</p><P>₹200</P><button onclick="addToCart('Hazelnut Fudge', 200)">ADD</button></div>
+    <div class="item-card"><img src="static/images/pastries/lemon.jpg"><p>Lemon Tart</p><P>₹180</P><button onclick="addToCart('Lemon Tart', 180)">ADD</button></div>
+    <div class="item-card"><img src="static/images/pastries/eclair.jpg"><p>Chocolate Eclair</p><P>₹160</P><button onclick="addToCart('Chocolate Eclair', 160)">ADD</button></div>
+    <div class="item-card"><img src="static/images/pastries/caramel.jpg"><p>Salted Caramel Tart</p><P>₹185</P><button onclick="addToCart('Salted Caramel Tart', 185)">ADD</button></div>
+    <div class="item-card"><img src="static/images/pastries/raspberrypie.jpg"><p>Raspberry Pie</p><P>₹175</P><button onclick="addToCart('Raspberry Pie', 175)">ADD</button></div>
+    <div class="item-card"><img src="static/images/pastries/mille.jpg"><p>French Mille-feuille</p><P>₹210</P><button onclick="addToCart('French Mille-feuille', 210)">ADD</button></div>
+    <div class="item-card"><img src="static/images/pastries/matcha.jpg"><p>Matcha Roll</p><P>₹170</P><button onclick="addToCart('Matcha Roll', 170)">ADD</button></div>
+    <div class="item-card"><img src="static/images/pastries/tiramisu.jpg"><p>Tiramisu Slice</p><P>₹200</P><button onclick="addToCart('Tiramisu Slice', 200)">ADD</button></div>
+  </div>
+</div>
+
+  
+  <!-- Specials Section -->
+
+<div class="menu-section" id="specials">
+  <h2>Specials</h2>
+  <div class="item-list">
+    <div class="item-card"><img src="static/images/specials/signature.jpg"><p>Sarone Signature Brew</p><p>₹160</p><button onclick="addToCart('Sarone Signature Brew', 160)">ADD</button></div>
+    <div class="item-card"><img src="static/images/specials/float.jpg"><p>Coffee Float</p><p>₹135</p><button onclick="addToCart('Coffee Float', 135)">ADD</button></div>
+    <div class="item-card"><img src="static/images/specials/storm.jpg"><p>Dark Chocolate Storm</p><p>₹150</p><button onclick="addToCart('Dark Chocolate Storm', 150)">ADD</button></div>
+    <div class="item-card"><img src="static/images/specials/chai.jpg"><p>Ginger Chai Bomb</p><p>₹90</p><button onclick="addToCart('Ginger Chai Bomb', 90)">ADD</button></div>
+    <div class="item-card"><img src="static/images/specials/affogato.jpg"><p>Caramel Affogato</p><p>₹140</p><button onclick="addToCart('Caramel Affogato', 140)">ADD</button></div>
+    <div class="item-card"><img src="static/images/specials/truffle.jpg"><p>Truffle Latte</p><p>₹155</p><button onclick="addToCart('Truffle Latte', 155)">ADD</button></div>
+    <div class="item-card"><img src="static/images/specials/maple.jpg"><p>Maple Espresso</p><p>₹130</p><button onclick="addToCart('Maple Espresso', 130)">ADD</button></div>
+    <div class="item-card"><img src="static/images/specials/seasonal.jpg"><p>Seasonal Latte</p><p>₹145</p><button onclick="addToCart('Seasonal Latte', 145)">ADD</button></div>
+    <div class="item-card"><img src="static/images/specials/rose.jpg"><p>Rose Cold Cream</p><p>₹130</p><button onclick="addToCart('Rose Cold Cream', 130)">ADD</button></div>
+    <div class="item-card"><img src="static/images/specials/vegan.jpg"><p>Vegan Cocoa Chill</p><p>₹140</p><button onclick="addToCart('Vegan Cocoa Chill', 140)">ADD</button></div>
+  </div>
+</div>
+
+
+
+  <!-- 🛒 Fixed Cart Icon -->
+<div id="cart-icon" onclick="toggleCart()">
+    🛒 <span id="cart-count">0</span>
+  </div>
+  
+  <!-- 🧾 Slide-in Cart Panel -->
+  <div id="cart-panel">
+    <div id="cart-header">
+      <h3>Your Cart</h3>
+      <button onclick="toggleCart()">✖</button>
+    </div>
+    <div id="cart-items"></div>
+    <div id="cart-total">
+      <strong>Total:</strong> ₹<span id="total-price">0</span>
+    </div>
+  </div>
+  
+  
+
+  <script>
+
+    function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  
+    function addToCart(itemName, itemPrice) {
+      cart.push({ name: itemName, price: itemPrice });
+      saveCart();
+      updateCart();
+    }
+  
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      saveCart();
+      updateCart();
+    }
+  
+    function saveCart() {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  
+    function updateCart() {
+      const cartItems = document.getElementById('cart-items');
+      const totalPrice = document.getElementById('total-price');
+      const cartCount = document.getElementById('cart-count');
+  
+      cartItems.innerHTML = '';
+      let total = 0;
+  
+      cart.forEach((item, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.style.display = "flex";
+        itemDiv.style.justifyContent = "space-between";
+        itemDiv.style.marginBottom = "0.6rem";
+        itemDiv.innerHTML = `
+          <span>${item.name} - ₹${item.price}</span>
+          <button onclick="removeFromCart(${index})">x</button>
+        `;
+        cartItems.appendChild(itemDiv);
+        total += item.price;
+      });
+  
+      totalPrice.textContent = total;
+      cartCount.textContent = cart.length;
+    }
+  
+    function toggleCart() {
+      document.getElementById('cart-panel').classList.toggle('open');
+    }
+  
+    // On load
+    window.onload = updateCart;
+  </script>
+  
+</body>
+</html>

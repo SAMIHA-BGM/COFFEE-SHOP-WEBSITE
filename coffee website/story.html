@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story | Sarone Café</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto+Slab&family=Merriweather&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #1e1c1a;
+      color: #e2dbc5;
+      font-family: 'Merriweather', serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #2d2b29;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #444;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #e2dbc5;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #e2dbc5;
+      font-family: 'Roboto Slab', serif;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #d6b36c;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem 3rem;
+      background: url('story_background.jpg') no-repeat center center/cover;
+      color: #e2dbc5;
+      background-blend-mode: multiply;
+      background-color: rgba(30, 28, 26, 0.85);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    section.story-content {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    section.story-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: #d6b36c;
+    }
+
+    .soul-section {
+      padding: 3rem 2rem;
+      background-color: #2a2826;
+      border-top: 1px solid #444;
+    }
+
+    .soul-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .soul-card {
+      background-color: #1f1d1b;
+      border: 1px solid #3e3c38;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .soul-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .soul-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: #d6b36c;
+      margin-bottom: 1rem;
+    }
+
+    .soul-card p {
+      font-size: 1rem;
+      font-style: italic;
+      color: #e2dbc5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #a0988c;
+      background-color: #1c1a18;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Sarone</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+         <li><a href="home.html">about us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Our Story</h1>
+    <p>Where ink stains meet espresso stains, and every table holds a tale.</p>
+  </section>
+
+  <section class="story-content">
+    <h2>Once Upon a Brew</h2>
+    <p>
+      Sarone was born from an obsession with the quiet — the kind you find only in candlelit libraries and autumn-touched alleyways. We’re not just a café. We are a cathedral of stillness, a sanctuary for scribblers, dreamers, and the quietly extraordinary.
+    </p>
+    <p>
+      The aroma of fresh-ground beans mixed with the musk of old books and worn leather creates a space unlike any other. Every corner was designed to breathe slow — to let you sip, not scroll. To stare at foggy windows and think deeply about nothing at all.
+    </p>
+    <p>
+      Here, you don’t just drink coffee. You experience it with your soul.
+    </p>
+  </section>
+
+  <section class="soul-section">
+    <h2>The Heart of Sarone</h2>
+    <div class="soul-cards">
+      <div class="soul-card">
+        <h3>The Lamp-lit Corners</h3>
+        <p>Where whispers of forgotten poets echo against worn brick walls.</p>
+      </div>
+      <div class="soul-card">
+        <h3>The Smell of Rain</h3>
+        <p>Drifting in with the breeze as pages turn and cups warm frozen fingers.</p>
+      </div>
+      <div class="soul-card">
+        <h3>The Ink-Stained Table</h3>
+        <p>Etched with ideas, spilled with memories, always welcoming the next mind.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Sarone Café —  Brewed with Books & Brilliance.</p>
+  </footer>
+
+</body>
+</html>
